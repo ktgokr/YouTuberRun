@@ -6,8 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("SwipeContrl")]
     [SerializeField] bool click;
-    [SerializeField] float runSpeed;
-    [SerializeField] float RotationSpeed;
+    [SerializeField] float runSpeed;    
     [SerializeField] float swipeSpeed;
     
     [Space(10)]
