@@ -6,7 +6,14 @@ namespace EnunTypes
 {
     public enum Theme
     {
+        None,
         Trip,
-        Game
+        Movie
+    }
+
+    public enum GoodBad
+    {
+        Good,
+        Bad
     }
 }

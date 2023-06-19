@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using EnunTypes;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,7 +18,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float MapSp;
 
     private Rigidbody rb;
-    Vector3 Direction; 
+    Vector3 Direction;
+
+    [Header("Change")]
+    public Theme ChannelType = Theme.None;
+    [SerializeField] Image ThumbnailImage_;
+    public Image thumbnailImage {set{ThumbnailImage_ = value;}get {return ThumbnailImage_;}}
+    [SerializeField] TextMeshProUGUI ThumbNail;
+    public TextMeshProUGUI thumbnail{set{ThumbNail = value;}get {return ThumbNail;}}
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -26,7 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetMouseButton(0))
         {      
-            click = true;                                                                 
+            click = true;                                                                      
         }
         else
         {
@@ -43,10 +53,10 @@ public class PlayerController : MonoBehaviour
         {
             GameState = false;
         }
-
         
     }
 
+#region MoveMent
      void FixedUpdate() 
     {
         if (click)
@@ -75,6 +85,12 @@ public class PlayerController : MonoBehaviour
             
         }
     }
-
+#endregion
     
+
+    public Theme ChanelTheme(Theme theme)
+    {
+        ChannelType = theme;
+        return ChannelType;
+    }
 }
