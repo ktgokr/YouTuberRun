@@ -20,15 +20,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     Vector3 Direction;
 
-    [Header("Change")]
-    public Theme ChannelType = Theme.None;
-    [SerializeField] Image ThumbnailImage_;
-    public Image thumbnailImage {set{ThumbnailImage_ = value;}get {return ThumbnailImage_;}}
-    [SerializeField] TextMeshProUGUI ThumbNail;
-    public TextMeshProUGUI thumbnail{set{ThumbNail = value;}get {return ThumbNail;}}
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = transform.GetChild(0).GetComponent<Rigidbody>();
     }
 
     
@@ -53,7 +47,10 @@ public class PlayerController : MonoBehaviour
         {
             GameState = false;
         }
-        
+        if(GameManager.instance.gameState == false)
+        {
+            MapSp = 0;
+        }
     }
 
 #region MoveMent
@@ -88,9 +85,5 @@ public class PlayerController : MonoBehaviour
 #endregion
     
 
-    public Theme ChanelTheme(Theme theme)
-    {
-        ChannelType = theme;
-        return ChannelType;
-    }
+   
 }

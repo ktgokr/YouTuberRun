@@ -107,7 +107,7 @@ Transform:
   m_GameObject: {fileID: 403116640851869508}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.011, y: -0.151, z: 9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.7, z: 1}
   m_Children:
   - {fileID: 5238119934841689710}
   - {fileID: 6494608930420991509}
@@ -249,6 +249,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   num: -1000
   Text_: {fileID: 4886518143656792724}
+  goodParticle: {fileID: 100006, guid: 6dd5b5851f0884bdaa6615a62e0544ea, type: 3}
+  badParticle: {fileID: 100018, guid: 5bd9e2a12cc7a4929a88a99b2709e15c, type: 3}
+  pos: {fileID: 1130058930569325675}
 --- !u!65 &5670020757009312175
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -872,6 +875,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   num: 1000
   Text_: {fileID: 4886518145088169334}
+  goodParticle: {fileID: 100006, guid: 6dd5b5851f0884bdaa6615a62e0544ea, type: 3}
+  badParticle: {fileID: 100018, guid: 5bd9e2a12cc7a4929a88a99b2709e15c, type: 3}
+  pos: {fileID: 9174570226070392053}
 --- !u!65 &799872515534798289
 BoxCollider:
   m_ObjectHideFlags: 0

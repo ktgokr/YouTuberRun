@@ -16,4 +16,24 @@ namespace EnunTypes
         Good,
         Bad
     }
+
+    public enum Country
+    {
+        none,
+        Italy,
+        Korea,
+        NorthKorea
+    }
+
+    public enum Acitiviy
+    {
+        Gondola,
+        CableCar
+    }
+
+    public enum LodgeType
+    {
+        Ressort,
+        Inn
+    }
 }

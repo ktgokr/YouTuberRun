@@ -267,6 +267,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: -1000
+  Text_: {fileID: 2314751448959116096}
+  goodParticle: {fileID: 0}
+  badParticle: {fileID: 0}
+  pos: {fileID: 7809530845768375743}
 --- !u!65 &3269672321871042683
 BoxCollider:
   m_ObjectHideFlags: 0
