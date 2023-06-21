@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] bool GameState = true;
     public bool gameState {set{GameState = value;} get{return GameState;}}
+    public Status status;
+
+    [SerializeField] bool yellowSticker = false; 
+    public bool yellowsticker {set{yellowSticker = value;} get{return yellowSticker;}}
 
 #region RelateNum
     [Header("Money")]
@@ -32,24 +36,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] int TmpSubScribe;
     public int subScribe{set{TmpSubScribe = value;} get{return TmpSubScribe;}}
     
-    [Header("Good/Bad")]
-    [SerializeField] int Good;
-    [SerializeField] int TmpGood;
-    public int good{set{TmpGood = value;} get{return TmpGood;}}
-    [SerializeField] int Bad;
-    [SerializeField] int TmpBad;
-    public int bad {set{TmpBad = value;} get{return TmpBad;}}
-
-    [Header("view")]
-    [SerializeField] int View;
-    [SerializeField] int Tmpview;
-    public int view { set { Tmpview = value; } get { return Tmpview; } }
 #endregion
     
     
     void Start()
     {
-        
+        status = Status.Play;
     }
 
     // Update is called once per frame
@@ -74,24 +66,19 @@ public class GameManager : MonoBehaviour
         //     View = Tmpview;
         //     // UIManager.instance_.UpdateImage();            
         // }
-        if(GameState == false)
+        if(status == Status.End)
         {
             if(TmpMoney < 0)
                 TmpMoney = 0;
             if (TmpSubScribe < 0)
                 TmpSubScribe = 0;
-            if (Tmpview < 0)
-                Tmpview = 0;
-            if (TmpGood < 0)
-                TmpGood = 0;
-            if (TmpBad < 0)
-                TmpBad = 0;
+
+            if (yellowSticker)
+            {
+                TmpMoney = 0;
+            }
             Money = TmpMoney;
-            SubScribe = TmpSubScribe;
-            Good = TmpGood;
-            Bad = TmpBad;
-            View = Tmpview;
-            // UIManager.instance_.UpdateImage();            
+            SubScribe = TmpSubScribe;                                
         }
         
         TextUpdate();
@@ -99,10 +86,7 @@ public class GameManager : MonoBehaviour
 
     void TextUpdate()
     {
-        UIManager.instance_.subscribe.text = TmpSubScribe.ToString();
-        UIManager.instance_.view.text = Tmpview.ToString();
-        UIManager.instance_.good.text = TmpGood.ToString();
-        UIManager.instance_.bad.text = TmpBad.ToString();        
+        UIManager.instance_.subscribe.text = TmpSubScribe.ToString();                
     }
 
     

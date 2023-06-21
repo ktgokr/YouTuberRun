@@ -4,17 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class SubscriberUpDown : MonoBehaviour
+public class SubscriberUpDown : GateCommon
 {    
-    [SerializeField] int num;
-    [SerializeField] TextMeshProUGUI Text_;
-    [SerializeField] GameObject goodParticle;
-    [SerializeField] GameObject badParticle;
-    [SerializeField] Transform pos;
 
+    [SerializeField] TextMeshProUGUI Text_;
+   
     void Start()
     {        
-        Text_.text = "Subscribe " + num.ToString();
+        Text_.text = num.ToString();
     }
     void OnTriggerExit(Collider other)
     {
@@ -22,15 +19,18 @@ public class SubscriberUpDown : MonoBehaviour
         {
             if(num >= 0)
             {
-                Instantiate(goodParticle, pos.position, Quaternion.identity);
+                // Instantiate(goodParticle, pos.position, Quaternion.identity);
+                other.GetComponent<Player>().PlayParticle(1);
             }
             else
             {
-                Instantiate(badParticle, pos.position, Quaternion.identity);
+                // Instantiate(badParticle, pos.position, Quaternion.identity);
+                other.GetComponent<Player>().PlayParticle(2);
             }
 
-            GameManager.instance.subScribe += num; 
-            // UIManager.instance_.subscribe.text = num.ToString();
+            GameManager.instance.subScribe += num;   
+            transform.parent.gameObject.SetActive(false);          
+            Debug.Log("Gate sub");
         }
     }
 }

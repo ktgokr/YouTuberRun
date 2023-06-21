@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class UIManager : MonoBehaviour
 {
     #region singleton
@@ -27,13 +28,11 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI good {set{ Good = value;} get{return Good;}}
     [SerializeField] TextMeshProUGUI Bad;
     public TextMeshProUGUI bad {set{ Bad = value;} get{return Bad;}}
-
-    [SerializeField] List<Image> images;
-    [SerializeField] List<Sprite> SpriteList;
     
-    [Header("VLog")]
-    [SerializeField] RectTransform Vlog;
-    [SerializeField] float VlogSp;
+    [Header("GameUI")]
+    [SerializeField] GameObject PassUI;
+    [SerializeField] GameObject GameUI;
+    [SerializeField] GameObject FailUI;
     void Start()
     {
         Subscribe.text = "0";
@@ -45,30 +44,28 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.instance.gameState == false)
-        {
-            UIManager.instance_.UpdateImage();  
-            StartCoroutine(PlayVlog_());            
-        }
+       switch(GameManager.instance.status)
+       {
+            case EnunTypes.Status.Play:
+                    GameUI.SetActive(true);
+                    FailUI.SetActive(false);
+                    PassUI.SetActive(false);
+                break;
+            case EnunTypes.Status.End:
+                    GameUI.SetActive(false);
+                    FailUI.SetActive(false);
+                    PassUI.SetActive(true);
+                break;
+            case EnunTypes.Status.Fail:
+                    GameUI.SetActive(false);
+                    FailUI.SetActive(true);
+                    PassUI.SetActive(false);
+                break;
+       }
     }
 
-    public void UpdateImage()
-    {
-        for(int i = 0; i < images.Count; i++)
-        {
-            images[i].sprite  = SpriteList[i];
-        }
-    }
+    
 
 
-    IEnumerator PlayVlog_()
-    {
-        Vlog.anchoredPosition += Vector2.left * VlogSp * Time.deltaTime;
-        yield return new WaitForSeconds(8f);
-        VlogSp =0;
-    }
-    public void AddImageSprite(Image image_)
-    {
-        SpriteList.Add(image_.sprite);
-    }
+
 }

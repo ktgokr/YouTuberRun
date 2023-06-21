@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 2762458844710431279}
   - component: {fileID: 2893519550263233900}
   - component: {fileID: 1163834752165624814}
+  - component: {fileID: 5371255755604943580}
   - component: {fileID: 3845519501018871659}
   m_Layer: 0
   m_Name: Good
@@ -159,6 +160,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5371255755604943580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6631641222526798629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd4395b6b7e146ff8d1edd9091a4fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classify: 0
+  num: 100
+  goodParticle: {fileID: 100006, guid: 6dd5b5851f0884bdaa6615a62e0544ea, type: 3}
+  badParticle: {fileID: 100018, guid: 5bd9e2a12cc7a4929a88a99b2709e15c, type: 3}
+  pos: {fileID: 2762458844710431279}
+  goodbad: 0
 --- !u!65 &3845519501018871659
 BoxCollider:
   m_ObjectHideFlags: 0

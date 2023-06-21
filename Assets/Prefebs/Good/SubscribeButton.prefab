@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 3133979322183825081}
   - component: {fileID: 1404908335042330683}
   - component: {fileID: 3893360473460444350}
+  - component: {fileID: 6804140358444374370}
   m_Layer: 0
   m_Name: SubscribeButton
   m_TagString: Untagged
@@ -172,6 +173,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6804140358444374370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6868459661045346544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd190501f9514fde94c4bbde6fea4eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classify: 0
+  num: 0
+  goodParticle: {fileID: 1247311384876784, guid: 3ce010e5f1c4947e58e616704aae0565, type: 3}
+  badParticle: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
+  suborUnSub: 0
+  pos: {fileID: 2670564809327563258}
 --- !u!1 &7627077076803267048
 GameObject:
   m_ObjectHideFlags: 0

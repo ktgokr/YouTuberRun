@@ -8,7 +8,8 @@ public class EndTrigger : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            GameManager.instance.gameState = false;
+            // GameManager.instance.gameState = false;
+            GameManager.instance.status = EnunTypes.Status.End;
         }
     }
 }

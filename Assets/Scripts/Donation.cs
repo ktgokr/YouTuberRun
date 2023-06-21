@@ -6,7 +6,7 @@ public class Donation : MonoBehaviour
 {
     [SerializeField] float sp;
     [SerializeField] int money;
-    [SerializeField] GameObject particle;
+    // [SerializeField] GameObject particle;
     void Update()
     {
         transform.localRotation *= Quaternion.Euler(sp, 0, 0);
@@ -17,7 +17,8 @@ public class Donation : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             GameManager.instance.tmpMoney += money;
-            Instantiate(particle, transform.position, Quaternion.identity);
+            // Instantiate(particle, transform.position, Quaternion.identity);
+            other.GetComponent<Player>().PlayParticle(3);
             Debug.Log($"Player : {money} is Plus");            
         }
     }

@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 7094397983220807404}
   - component: {fileID: 6518186790461833326}
   - component: {fileID: 9155116893564570859}
+  - component: {fileID: 1760719424300141735}
   m_Layer: 0
   m_Name: UnSubscribeButton
   m_TagString: Untagged
@@ -172,6 +173,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1760719424300141735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611118089494409381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd190501f9514fde94c4bbde6fea4eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classify: 0
+  num: -200
+  goodParticle: {fileID: 0}
+  badParticle: {fileID: 100000, guid: 951efeaa11b8d4165838598cf2e0d125, type: 3}
+  suborUnSub: 1
+  pos: {fileID: 7783834777992352175}
 --- !u!1 &2365144923781605821
 GameObject:
   m_ObjectHideFlags: 0

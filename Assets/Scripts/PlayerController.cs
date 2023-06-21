@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             GameState = false;
         }
-        if(GameManager.instance.gameState == false)
+        if(GameManager.instance.status == EnunTypes.Status.End || GameManager.instance.status == EnunTypes.Status.Fail)
         {
             MapSp = 0;
         }

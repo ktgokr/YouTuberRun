@@ -4,36 +4,42 @@ using UnityEngine;
 
 namespace EnunTypes
 {
-    public enum Theme
+    public enum Status
     {
-        None,
-        Trip,
-        Movie
+        Ready,
+        Play,
+        End,
+        Fail
     }
 
+    public enum SubScriberGrade
+    {
+        Normal,
+        Silver,
+        Gold,
+        Diamond,
+        Ruby
+    }
     public enum GoodBad
     {
         Good,
-        Bad
+        Bad,        
     }
 
-    public enum Country
+    public enum Classify
     {
-        none,
-        Italy,
-        Korea,
-        NorthKorea
+        Safe,
+        Alter,
+        Danger
     }
 
-    public enum Acitiviy
+    public enum SuborUnSub
     {
-        Gondola,
-        CableCar
+        Subscribe,
+        UnSubscribe
     }
+    
 
-    public enum LodgeType
-    {
-        Ressort,
-        Inn
-    }
+
+       
 }
