@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] Material[] materials;
     private Renderer cubeRenderer;
     [SerializeField] TextMeshProUGUI ChannelName;
+    [SerializeField] GameObject UtubeButton;
     public TextMeshProUGUI channelName {set{ChannelName = value;}get {return ChannelName;}}
     [SerializeField] GameObject yellosticker;
     [SerializeField] TextMeshProUGUI ButtonName;
@@ -22,10 +23,20 @@ public class Player : MonoBehaviour
     [Header("Particle")]
     [SerializeField] ParticleSystem[] particles;
     bool playParicle = false;
-    
+    [Header("Parts")]
+    [SerializeField] GameObject Cap;
+    [SerializeField] GameObject Neck;
+    [SerializeField] GameObject[] Shoes;
+    [SerializeField] GameObject Ring;
+
     void Start()
     {
-        cubeRenderer = GetComponent<Renderer>();
+        cubeRenderer = UtubeButton.GetComponent<Renderer>();
+        Cap.SetActive(false);
+        Neck.SetActive(false);
+        Shoes[0].SetActive(false);
+        Shoes[1].SetActive(false);
+        Ring.SetActive(false);
     }
     void Update()
     {
@@ -54,19 +65,23 @@ public class Player : MonoBehaviour
                 subGrade = SubScriberGrade.Silver;
                 ButtonImage.sprite = ButtonSprite[1];
                 cubeRenderer.material = materials[1];
-                ButtonName.text = "Silver";                
+                ButtonName.text = "Silver";
+                Shoes[0].SetActive(true);
+                Shoes[1].SetActive(true);
                 break;
             case int n when (n >= 10000 && n < 100000):
                 subGrade = SubScriberGrade.Gold;
                 ButtonImage.sprite = ButtonSprite[2];
                 cubeRenderer.material = materials[2];
-                ButtonName.text = "Gold";                
+                ButtonName.text = "Gold";
+                Ring.SetActive(true);
                 break;
             case int n when (n >= 100000):
                 subGrade = SubScriberGrade.Diamond;
                 ButtonImage.sprite = ButtonSprite[3];
                 cubeRenderer.material = materials[3];
-                ButtonName.text = "Diamond";                
+                ButtonName.text = "Diamond";
+                Neck.SetActive(true);
                 break;
         }
         
@@ -97,6 +112,11 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         playParicle = false;
 
+    }
+
+    public void CapOn()
+    {
+        Cap.SetActive(true);
     }
 
 }

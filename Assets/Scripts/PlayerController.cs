@@ -17,12 +17,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool GameState = false;
     [SerializeField] float MapSp;
 
-    private Rigidbody rb;
+    [SerializeField]private Rigidbody rb;
+    [SerializeField] Animator ani;
     Vector3 Direction;
 
     void Start()
     {
-        rb = transform.GetChild(0).GetComponent<Rigidbody>();
+        //rb = transform.GetChild(0).GetComponent<Rigidbody>();
     }
 
     
@@ -59,11 +60,13 @@ public class PlayerController : MonoBehaviour
         if (click)
         {
             Vector3 displacement = new Vector3(Direction.x, 0f, 0f) * Time.fixedDeltaTime;          
-            rb.velocity = new Vector3(Direction.x * Time.fixedDeltaTime * swipeSpeed, 0f, 0f) + displacement;            
+            rb.velocity = new Vector3(Direction.x * Time.fixedDeltaTime * swipeSpeed, 0f, 0f) + displacement;
+            
         }
         else
         {                               
-            rb.velocity = Vector3.zero;            
+            rb.velocity = Vector3.zero;
+            
         }
     }
 
@@ -75,11 +78,11 @@ public class PlayerController : MonoBehaviour
 
             Direction = Vector3.ClampMagnitude(Direction, 1f);
             Map.transform.Translate(Vector3.back * MapSp * Time.deltaTime);
-
+            ani.SetBool("Walk", GameState);
         }
         else
         {
-            
+            ani.SetBool("Walk", GameState);
         }
     }
 #endregion

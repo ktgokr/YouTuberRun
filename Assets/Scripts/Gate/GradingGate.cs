@@ -27,6 +27,7 @@ public class GradingGate : GateCommon
                     GameManager.instance.subScribe += num;
                     // Instantiate(goodParticle, pos.position, Quaternion.identity);
                     other.GetComponent<Player>().PlayParticle(1);
+                    other.GetComponent<Player>().CapOn();
                     Debug.Log("Good Gate");
                     break;
                 case Classify.Alter:
