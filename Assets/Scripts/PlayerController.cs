@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.A))
         {
             GameState = true;            
+            GameManager.instance.status = EnunTypes.Status.Play;
         }
         if(Input.GetKeyDown(KeyCode.B))
         {
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
         }
         if(GameManager.instance.status == EnunTypes.Status.End || GameManager.instance.status == EnunTypes.Status.Fail)
         {
+            GameState = false;
             MapSp = 0;
         }
     }
@@ -87,6 +89,18 @@ public class PlayerController : MonoBehaviour
     }
 #endregion
     
+    public void Dance()
+    {
+        // ani.SetBool("Dance", true);
+        StartCoroutine(HipHopDance());
+    }
+
+    IEnumerator HipHopDance()
+    {
+        
+        yield return new WaitForSeconds(2f);
+        ani.SetBool("Dance", true);
+    }
 
    
 }

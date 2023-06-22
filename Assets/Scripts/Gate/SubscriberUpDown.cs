@@ -11,12 +11,16 @@ public class SubscriberUpDown : GateCommon
    
     void Start()
     {        
-        Text_.text = num.ToString();
+        // Text_.text = num.ToString();
     }
     void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("Player"))
         {
+            if(classify == EnunTypes.Classify.Alter)
+            {
+                GameManager.instance.yellowsticker = true;     
+            }
             if(num >= 0)
             {
                 // Instantiate(goodParticle, pos.position, Quaternion.identity);

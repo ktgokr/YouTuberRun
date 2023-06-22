@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
-        status = Status.Play;
+        status = Status.Ready;
     }
 
     // Update is called once per frame

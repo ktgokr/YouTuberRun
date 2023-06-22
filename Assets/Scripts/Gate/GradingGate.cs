@@ -26,7 +26,7 @@ public class GradingGate : GateCommon
                 case Classify.Safe:
                     GameManager.instance.subScribe += num;
                     // Instantiate(goodParticle, pos.position, Quaternion.identity);
-                    other.GetComponent<Player>().PlayParticle(1);
+                    other.GetComponent<Player>().PlayParticle(5);
                     other.GetComponent<Player>().CapOn();
                     Debug.Log("Good Gate");
                     break;

@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     
     [Header("Particle")]
     [SerializeField] ParticleSystem[] particles;
+    int cnt =0;
     bool playParicle = false;
     [Header("Parts")]
     [SerializeField] GameObject Cap;
@@ -68,6 +69,16 @@ public class Player : MonoBehaviour
                 ButtonName.text = "Silver";
                 Shoes[0].SetActive(true);
                 Shoes[1].SetActive(true);
+                if(cnt < 1)
+                {
+                    float yOffset = 0.4f;
+                    Vector3 currentPosition = transform.position;                    
+                    currentPosition.y += yOffset;                    
+                    transform.position = currentPosition;
+
+                    PlayParticle(5);
+                    cnt++;
+                }
                 break;
             case int n when (n >= 10000 && n < 100000):
                 subGrade = SubScriberGrade.Gold;
@@ -75,6 +86,11 @@ public class Player : MonoBehaviour
                 cubeRenderer.material = materials[2];
                 ButtonName.text = "Gold";
                 Ring.SetActive(true);
+                if(cnt < 2)
+                {
+                    PlayParticle(5);
+                    cnt++;
+                }
                 break;
             case int n when (n >= 100000):
                 subGrade = SubScriberGrade.Diamond;
@@ -82,6 +98,11 @@ public class Player : MonoBehaviour
                 cubeRenderer.material = materials[3];
                 ButtonName.text = "Diamond";
                 Neck.SetActive(true);
+                if(cnt < 3)
+                {
+                    PlayParticle(5);
+                    cnt++;
+                }
                 break;
         }
         
@@ -92,16 +113,19 @@ public class Player : MonoBehaviour
         switch(i)
         {
             case 1: 
-                particles[0].Play();
+                particles[0].Play(); //good
                 break;
             case 2:
-                particles[1].Play();
+                particles[1].Play(); //bad
                 break;
             case 3:
-                particles[2].Play();
+                particles[2].Play();    //money
                 break;
             case 4:
-                particles[3].Play();
+                particles[3].Play();    //superstar
+                break;
+            case 5:
+                particles[4].Play();    //superstar
                 break;
         }
     }
@@ -116,7 +140,9 @@ public class Player : MonoBehaviour
 
     public void CapOn()
     {
-        Cap.SetActive(true);
+        Cap.SetActive(true);        
     }
+
+   
 
 }
